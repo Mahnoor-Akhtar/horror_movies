@@ -1,9 +1,4 @@
+import { toNodeHandler } from "srvx/node";
 import server from "../dist/server/server.js";
 
-export const config = {
-  runtime: "edge",
-};
-
-export default async function handler(request) {
-  return server.fetch(request);
-}
+export default toNodeHandler(server.fetch);
